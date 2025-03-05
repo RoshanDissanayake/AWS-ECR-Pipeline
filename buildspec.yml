@@ -6,15 +6,15 @@ phases:
   pre_build:
     commands:
       - echo Logging in to Amazon ECR...
-      - aws ecr get-login-password --region us-west-2 | docker login --username AWS --password-stdin 056247753720.dkr.ecr.ap-south-1.amazonaws.com
+      - aws ecr get-login-password --region us-west-2 | docker login --username AWS --password-stdin 971422678605.dkr.ecr.us-west-2.amazonaws.com
   build:
     commands:
       - echo Build started on `date`
       - echo Building the Docker image...          
       - docker build -t ecr-demo .
-      - docker tag ecr-demo:latest 056247753720.dkr.ecr.us-west-2.amazonaws.com/ecr-demo:latest
+      - docker tag ecr-demo:latest 971422678605.dkr.ecr.us-west-2.amazonaws.com/ecr-demo:latest
   post_build:
     commands:
       - echo Build completed on `date`
       - echo Pushing the Docker image...
-      - docker push 056247753720.dkr.ecr.us-west-2.amazonaws.com/ecr-demo:latest
+      - docker push 971422678605.dkr.ecr.us-west-2.amazonaws.com/ecr-demo:latest
